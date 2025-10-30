@@ -1,57 +1,39 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "hossamhoussien/laravel-circuit-breaker",
+    "description": "This is my package laravel-circuit-breaker",
     "keywords": [
-        ":vendor_name",
+        "php",
         "laravel",
-        ":package_slug"
+        "circuit-breaker",
+        "php-circuit-breaker",
+        "laravel-circuit-breaker"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/hossamhoussien/laravel-circuit-breaker",
     "license": "MIT",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Hossam Houssien",
+            "email": "hossam.houssien.a@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.4",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^11.0||^12.0"
-    },
-    "require-dev": {
-        "laravel/pint": "^1.14",
-        "nunomaduro/collision": "^8.8",
-        "larastan/larastan": "^3.0",
-        "orchestra/testbench": "^10.0.0||^9.0.0",
-        "pestphp/pest": "^4.0",
-        "pestphp/pest-plugin-arch": "^4.0",
-        "pestphp/pest-plugin-laravel": "^4.0",
-        "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan-deprecation-rules": "^2.0",
-        "phpstan/phpstan-phpunit": "^2.0",
-        "spatie/laravel-ray": "^1.35"
+        "php": "^8.0",
+        "illuminate/contracts": "^9.0|^10.0|^11.0|^12.0",
+        "illuminate/support": "^9.0|^10.0|^11.0|^12.0",
+        "spatie/laravel-package-tools": "^1.92"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "HossamHoussien\\CircuitBreaker\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "HossamHoussien\\CircuitBreaker\\Tests\\": "tests/"
         }
-    },
-    "scripts": {
-        "post-autoload-dump": "@composer run prepare",
-        "prepare": "@php vendor/bin/testbench package:discover --ansi",
-        "analyse": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
     },
     "config": {
         "sort-packages": true,
@@ -63,13 +45,23 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "HossamHoussien\\CircuitBreaker\\CircuitBreakerServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "CircuitBreaker": "HossamHoussien\\CircuitBreaker\\Facades\\CircuitBreaker"
             }
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "scripts": {
+        "pint": "vendor/bin/pint",
+        "pest": "vendor/bin/pest"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.5",
+        "nunomaduro/collision": "^6.4",
+        "orchestra/testbench": "^7.55",
+        "pestphp/pest": "^1.23",
+        "pestphp/pest-plugin": "^1.1",
+        "pestphp/pest-plugin-laravel": "^1.4"
+    }
 }
